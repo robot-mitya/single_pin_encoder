@@ -14,7 +14,7 @@ SinglePinEncoder::SinglePinEncoder(int pin, unsigned long checkPinPeriod) {
 
 
 void SinglePinEncoder::init(int pin) {
-  init(pin, DEFAULT_CHECK_PIN_PERIOD);
+  init(pin, DEFAULT_CHECK_PIN_PERIOD_IN_MICROS);
 }
 
 void SinglePinEncoder::init(int pin, unsigned long checkPinPeriod) {
@@ -157,6 +157,8 @@ void SinglePinEncoder::processSpeedHandler(unsigned long currentMicros) {
 
   if (firstSpeedHandlerIteration) {
     firstSpeedHandlerIteration = false;
+    previousPositiveSteps = positiveSteps;
+    previousNegativeSteps = negativeSteps;
     previousMeasureSpeedMicros = currentMicros;
   }
 

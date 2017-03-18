@@ -14,7 +14,7 @@ typedef void (*SpeedHandler)(Speed speed);
 class SinglePinEncoder
 {
   public:
-    static const unsigned long DEFAULT_CHECK_PIN_PERIOD = 500;
+    static const unsigned long DEFAULT_CHECK_PIN_PERIOD_IN_MICROS = 500;
   
     SinglePinEncoder();
     SinglePinEncoder(int pin);
